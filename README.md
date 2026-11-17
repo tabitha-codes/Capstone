@@ -10,16 +10,41 @@ I came up with Lease Lens and chose the pages and features. The back end is buil
 
 ## Pages
 
-1. **Home** - what Lease Lens is, plus a search box (done)
-2. **Apartments** - all the apartments, with a search filter (done)
-3. **Apartment Details** - one apartment, its average rating, and all its reviews (done)
-4. **Write a Review** - the form to add a review (I use the same page to edit one) (done)
+1. **Home** - what Lease Lens is, plus a search box
+2. **Apartments** - all the apartments, with a search filter
+3. **Apartment Details** - one apartment, its average rating, and all its reviews
+4. **Write a Review** - the form to add a review (I use the same page to edit one)
 
 ## What I used
 
 - **Front end:** React + Vite, React Router
 - **Back end:** Node, Express (MVC folders)
 - **Database:** MongoDB with Mongoose
+- **Testing:** Jest + Supertest
+
+## Folders
+
+```
+Capstone/
+├── backend/
+│   ├── server.js          starts the server
+│   ├── app.js             sets up Express and the routes
+│   ├── dbConnect.js       connects to MongoDB
+│   ├── seed.js            adds sample apartments and reviews
+│   ├── models/            M - apartment and review
+│   ├── controllers/       C - what happens for each request
+│   ├── routes/            links each URL to a controller
+│   ├── middleware/        error handling
+│   └── tests/             my Jest + Supertest tests
+└── frontend/
+    └── src/
+        ├── pages/         the 4 pages + page not found
+        ├── components/    navbar, footer, cards, stars
+        ├── hooks/         useData (from Module 7)
+        └── routes/        AppRoutes
+```
+
+The React front end is the "View" part of MVC.
 
 ## How to run it
 
@@ -51,6 +76,15 @@ npm run dev
 
 Open http://localhost:5173
 
+## Tests
+
+MongoDB has to be running. The tests use their own database (`leaseLensTestDB`) so my real data is safe.
+
+```
+cd backend
+npm test
+```
+
 ## API
 
 | Method | URL | What it does |
@@ -64,3 +98,9 @@ Open http://localhost:5173
 | DELETE | /api/reviews/:id | Delete a review |
 
 A review needs `apartment_id`, `name`, `review_type` (tour or resident) and `rating` (1 to 5). `pros`, `cons`, `agent_name`, `agent_notes` and `photo_url` are optional.
+
+## What I'd add next
+
+- Login, so only the person who wrote a review can edit or delete it. Right now anyone can.
+- Uploading photos instead of pasting a link
+- Letting people add new apartments

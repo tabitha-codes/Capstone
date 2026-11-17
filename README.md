@@ -11,8 +11,8 @@ I came up with Lease Lens and chose the pages and features. The back end is buil
 ## Pages
 
 1. **Home** - what Lease Lens is, plus a search box (done)
-2. **Apartments** - coming next
-3. **Apartment Details** - coming next
+2. **Apartments** - all the apartments, with a search filter (done)
+3. **Apartment Details** - one apartment, its average rating, and all its reviews (done)
 4. **Write a Review** - coming next
 
 ## What I used

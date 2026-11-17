@@ -7,6 +7,7 @@ function NavBar() {
       <nav aria-label="Main navigation">
         <ul>
           <li><NavLink to="/" end>Home</NavLink></li>
+          <li><NavLink to="/apartments">Apartments</NavLink></li>
         </ul>
       </nav>
     </header>

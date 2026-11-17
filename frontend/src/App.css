@@ -85,6 +85,14 @@
   color: var(--muted);
 }
 
+.error {
+  color: var(--red);
+}
+
+.price {
+  font-weight: bold;
+}
+
 /* ===========HOME PAGE=========== */
 .hero {
   padding: 4rem 1rem;
@@ -111,7 +119,8 @@
   margin: 0 auto;
 }
 
-.search-form input {
+.search-form input,
+.filter-input {
   flex: 1;
   padding: 0.6rem;
   border: 1px solid var(--border);
@@ -130,6 +139,32 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
+}
+
+/* ===========APARTMENTS PAGE=========== */
+.filter-input {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.apartment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.apartment-card {
+  color: var(--text);
+  text-decoration: none;
+  border-top: 4px solid var(--blue);
+}
+
+.apartment-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.review-count {
+  color: var(--blue);
 }
 
 /* ===========SMALL SCREENS=========== */

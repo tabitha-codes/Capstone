@@ -3,6 +3,8 @@
 // without starting the real server. (Same setup as my Module 9 blog app.)
 const express = require("express");
 
+const apartmentRoutes = require("./routes/apartmentRoutes");
+const reviewRoutes = require("./routes/reviewRoutes");
 const { notFound, errorHandler } = require("./middleware/errorHandler");
 
 const app = express();
@@ -18,6 +20,9 @@ app.use((req, res, next) => {
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to the Lease Lens API" });
 });
+
+app.use("/api/apartments", apartmentRoutes);
+app.use("/api/reviews", reviewRoutes);
 
 app.use(notFound);
 app.use(errorHandler);

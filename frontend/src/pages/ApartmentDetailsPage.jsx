@@ -23,7 +23,20 @@ function ApartmentDetailsPage() {
       .catch((err) => setError(err.message))
   }, [id])
 
-  if (error) {
+  // DELETE A REVIEW
+  const handleDelete = (reviewId) => {
+    if (!window.confirm('Delete this review?')) return
+
+    fetch(`/api/reviews/${reviewId}`, { method: 'DELETE' })
+      .then((response) => {
+        if (!response.ok) throw new Error('Could not delete the review')
+        // take it off the page without reloading
+        setReviews(reviews.filter((review) => review._id !== reviewId))
+      })
+      .catch((err) => setError(err.message))
+  }
+
+  if (error && !apartment) {
     return (
       <section className="page">
         <p className="error">Couldn't load this apartment. ({error})</p>
@@ -70,10 +83,11 @@ function ApartmentDetailsPage() {
         <Link to={`/write-review?apartment=${apartment._id}`} className="btn">Write a Review</Link>
       </div>
 
+      {error && <p className="error">{error}</p>}
       {reviews.length === 0 && <p>Be the first to review this place.</p>}
 
       {reviews.map((review) => (
-        <ReviewCard key={review._id} review={review} />
+        <ReviewCard key={review._id} review={review} onDelete={handleDelete} />
       ))}
     </section>
   )

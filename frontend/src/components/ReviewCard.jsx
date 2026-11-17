@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom'
 import Stars from './Stars'
 
-function ReviewCard({ review }) {
+function ReviewCard({ review, onDelete }) {
   const date = new Date(review.created_at).toLocaleDateString()
 
   return (
@@ -29,6 +30,13 @@ function ReviewCard({ review }) {
       {review.photo_url && (
         <img src={review.photo_url} alt={`Photo from ${review.name}`} className="review-photo" />
       )}
+
+      <div className="review-buttons">
+        <Link to={`/reviews/${review._id}/edit`} className="btn btn-small">Edit</Link>
+        <button type="button" className="btn btn-small btn-delete" onClick={() => onDelete(review._id)}>
+          Delete
+        </button>
+      </div>
     </article>
   )
 }

@@ -59,6 +59,19 @@
   background-color: var(--dark-blue);
 }
 
+.btn-small {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+.btn-delete {
+  background-color: var(--red);
+}
+
+.btn-delete:hover {
+  background-color: #8e1c1c;
+}
+
 .btn-plain {
   background-color: transparent;
   color: var(--blue);
@@ -253,6 +266,12 @@
   max-height: 300px;
   margin-top: 0.75rem;
   border-radius: 6px;
+}
+
+.review-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
 }
 
 /* ===========REVIEW FORM=========== */

@@ -15,7 +15,33 @@ I came up with Lease Lens and chose the pages and features. The back end is buil
 3. **Apartment Details** - coming next
 4. **Write a Review** - coming next
 
+## What I used
+
+- **Front end:** React + Vite, React Router
+- **Back end:** Node, Express (MVC folders)
+- **Database:** MongoDB with Mongoose
+
 ## How to run it
+
+You need Node and MongoDB installed, and MongoDB running.
+
+**1. Back end** (first terminal)
+
+```
+cd backend
+npm install
+```
+
+Copy `.env.example` and rename the copy to `.env`. Then:
+
+```
+npm run seed
+npm run dev
+```
+
+You should see `MongoDB connected` and `Server is running on http://localhost:8081`.
+
+**2. Front end** (second terminal)
 
 ```
 cd frontend
@@ -24,3 +50,17 @@ npm run dev
 ```
 
 Open http://localhost:5173
+
+## API
+
+| Method | URL | What it does |
+|---|---|---|
+| GET | /api/apartments | All apartments with their review count |
+| GET | /api/apartments/:id | One apartment with its reviews |
+| POST | /api/reviews | Add a review |
+| GET | /api/reviews | All reviews (add `?apartment_id=` for one apartment) |
+| GET | /api/reviews/:id | One review |
+| PUT | /api/reviews/:id | Edit a review |
+| DELETE | /api/reviews/:id | Delete a review |
+
+A review needs `apartment_id`, `name`, `review_type` (tour or resident) and `rating` (1 to 5). `pros`, `cons`, `agent_name`, `agent_notes` and `photo_url` are optional.

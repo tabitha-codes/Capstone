@@ -1,7 +1,7 @@
 // UNIT TESTS FOR MY API
 // Uses a separate test database so my real data is safe.
 // MongoDB has to be running before "npm test".
-require("dotenv").config();
+require("dotenv").config({ quiet: true });
 
 const request = require("supertest");
 const mongoose = require("mongoose");
@@ -24,7 +24,9 @@ const newReview = {
 };
 
 beforeAll(async () => {
-  await mongoose.connect(TEST_DB);
+  // Jest can't load "os" the way the MongoDB driver wants, so I hand it over myself.
+  // Without this the tests just hang.
+  await mongoose.connect(TEST_DB, { runtimeAdapters: { os: require("os") } });
   await Review.deleteMany({});
   await Apartment.deleteMany({});
 

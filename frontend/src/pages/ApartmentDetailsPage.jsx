@@ -65,9 +65,12 @@ function ApartmentDetailsPage() {
         </div>
       </div>
 
-      <h2>Reviews</h2>
+      <div className="reviews-heading">
+        <h2>Reviews</h2>
+        <Link to={`/write-review?apartment=${apartment._id}`} className="btn">Write a Review</Link>
+      </div>
 
-      {reviews.length === 0 && <p>No reviews yet.</p>}
+      {reviews.length === 0 && <p>Be the first to review this place.</p>}
 
       {reviews.map((review) => (
         <ReviewCard key={review._id} review={review} />

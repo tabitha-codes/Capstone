@@ -8,6 +8,7 @@ function NavBar() {
         <ul>
           <li><NavLink to="/" end>Home</NavLink></li>
           <li><NavLink to="/apartments">Apartments</NavLink></li>
+          <li><NavLink to="/write-review">Write a Review</NavLink></li>
         </ul>
       </nav>
     </header>
